@@ -8954,7 +8954,9 @@ athp_vif_update_txpower(struct ieee80211vap *vap)
 int
 athp_vif_update_ap_ssid(struct ieee80211vap *vap, struct ieee80211_node *ni)
 {
+#ifdef INVARIANTS
 	struct ath10k *ar = vap->iv_ic->ic_softc;
+#endif
 	struct ath10k_vif *arvif = ath10k_vif_to_arvif(vap);
 
 	ATHP_CONF_LOCK_ASSERT(ar);
@@ -9128,7 +9130,9 @@ athp_vif_ap_setup(struct ieee80211vap *vap, struct ieee80211_node *ni)
 int
 athp_vif_ap_stop(struct ieee80211vap *vap, struct ieee80211_node *ni)
 {
+#ifdef INVARIANTS
 	struct ath10k *ar = vap->iv_ic->ic_softc;
+#endif
 	struct ath10k_vif *arvif = ath10k_vif_to_arvif(vap);
 
 	ATHP_CONF_LOCK_ASSERT(ar);
